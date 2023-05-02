@@ -21,7 +21,7 @@ def pred(user_id, product_name, lift, recc):
     try:
         product_id = product_names_to_ids[product_name]
     except KeyError:
-        return "Not under recommendation"
+        return "Not associated in recommendation"
     
     prediction = model(user_id, product_id, lift, recc)
     return prediction
@@ -51,7 +51,7 @@ def main():
             product_id = product_name_to_id(product_name)
             result = pred(user_id, product_name, lift, recc)
         except KeyError:
-            result = "Not under recommendation"
+            result = "Not associated in recommendation"
     st.success("The output is {}".format(result))
 
 
